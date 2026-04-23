@@ -1,0 +1,293 @@
+/* --- Global Reset --- */
+:root {
+    --lib-green: #2d6a4f;   /* Deep Forest Green (Academic) */
+    --sage-light: #f4f7f5;  /* Soft Background */
+    --gold-accent: #808847; /* Professional Gold */
+    --text-dark: #212529;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--sage-light);
+    color: var(--text-dark);
+}
+
+/* --- 100% FULL WIDTH STICKY NAVBAR --- */
+.header {
+    width: 100% !important;
+    background-color: #ffffff !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 9999 !important;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+/* --- Modern Bookify Logo Badge --- */
+.brand-logo-icon {
+    width: 45px;
+    height: 45px;
+    background-color: var(--lib-green); /* The Olive color */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px; /* Smooth rounded corners like an App icon */
+    font-size: 22px;
+    box-shadow: 0 4px 10px rgba(128, 136, 71, 0.3);
+    transition: 0.3s ease;
+}
+
+.logo-area:hover .brand-logo-icon {
+    transform: rotate(-10deg) scale(1.1);
+    background-color: var(--gold-accent); /* Changes color on hover */
+}
+
+/* Adjust the logo area to fit the new icon */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.navbar-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Fix (Cannot be giant) */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.logo-area img {
+    height: 50px !important;
+    width: 50px !important;
+    object-fit: contain;
+}
+
+.logo-area h3 {
+    margin: 0;
+    color: var(--lib-green);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Horizontal Menu Links */
+.nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-menu li a {
+    text-decoration: none !important;
+    color: var(--text-dark) !important; /* Fix purple links */
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: var(--gold-accent) !important;
+}
+
+/* Login Button Styling */
+.login-btn {
+    background-color: var(--lib-green) !important;
+    color: #ffffff;
+    border-radius: 50px;
+    padding: 10px 25px !important;
+}
+
+/* --- LANDING PAGE SECTIONS --- */
+.hero {
+    margin-top: 80px; /* Offset for sticky nav */
+    padding: 120px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.hero h1 {
+    font-size: 65px;
+    font-weight: 800;
+    color: var(--lib-green);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+    max-width: 700px;
+    margin: 20px auto 40px;
+}
+
+/* --- OUR SERVICES BOXES --- */
+.services-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.service-card {
+    background: #fff;
+    padding: 50px 30px;
+    border-radius: 15px;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.service-card i {
+    font-size: 40px;
+    color: var(--gold-accent);
+    margin-bottom: 20px;
+}
+
+.service-card h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--lib-green);
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: #fff;
+    min-width: 180px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+.show { display: block !important; }
+
+
+/* --- FOOTER STYLING --- */
+.footer {
+    background-color: var(--lib-green); /* Deep Academic Green */
+    color: #cbd5e1;
+    padding: 80px 0 40px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: var(--gold-accent);
+}
+
+.footer-col p {
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.footer-col i {
+    color: var(--gold-accent);
+    margin-right: 12px;
+    width: 20px;
+}
+
+/* Map Style */
+.map-frame {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    border: none;
+    filter: grayscale(100%) invert(90%) contrast(100%); /* Makes map match the modern theme */
+}
+
+/* Bottom Copyright Bar */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--gold-accent);
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    margin: 0;
+}

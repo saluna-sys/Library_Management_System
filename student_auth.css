@@ -1,0 +1,340 @@
+/* --- Global Reset --- */
+:root {
+    --lib-green: #2d6a4f;   /* Deep Forest Green (Academic) */
+    --sage-light: #f4f7f5;  /* Soft Background */
+    --gold-accent: #808847; /* Professional Gold */
+    --text-dark: #212529;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--sage-light);
+    color: var(--text-dark);
+}
+
+/* --- 100% FULL WIDTH STICKY NAVBAR --- */
+.header {
+    width: 100% !important;
+    background-color: #ffffff !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 9999 !important;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+/* --- Modern Bookify Logo Badge --- */
+.brand-logo-icon {
+    width: 45px;
+    height: 45px;
+    background-color: var(--lib-green); /* The Olive color */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px; /* Smooth rounded corners like an App icon */
+    font-size: 22px;
+    box-shadow: 0 4px 10px rgba(128, 136, 71, 0.3);
+    transition: 0.3s ease;
+}
+
+.logo-area:hover .brand-logo-icon {
+    transform: rotate(-10deg) scale(1.1);
+    background-color: var(--gold-accent); /* Changes color on hover */
+}
+
+/* Adjust the logo area to fit the new icon */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.navbar-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Fix (Cannot be giant) */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.logo-area img {
+    height: 50px !important;
+    width: 50px !important;
+    object-fit: contain;
+}
+
+.logo-area h3 {
+    margin: 0;
+    color: var(--lib-green);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Remove default link styling for the cards */
+.stat-card-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect to show the card is clickable */
+.stat-card-link:hover .stat-card {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+/* Keep the inner card alignment correct */
+.stat-card {
+    transition: all 0.3s ease;
+}
+
+/* Horizontal Menu Links */
+.nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-menu li a {
+    text-decoration: none !important;
+    color: var(--text-dark) !important; /* Fix purple links */
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: var(--gold-accent) !important;
+}
+
+/* Login Button Styling */
+.login-btn {
+    background-color: var(--lib-green) !important;
+    color: #ffffff;
+    border-radius: 50px;
+    padding: 10px 25px !important;
+}
+
+
+/* --- FOOTER STYLING --- */
+.footer {
+    background-color: var(--lib-green); /* Deep Academic Green */
+    color: #cbd5e1;
+    padding: 80px 0 40px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: var(--gold-accent);
+}
+
+.footer-col p {
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.footer-col i {
+    color: var(--gold-accent);
+    margin-right: 12px;
+    width: 20px;
+}
+
+/* Map Style */
+.map-frame {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    border: none;
+    filter: grayscale(100%) invert(90%) contrast(100%); /* Makes map match the modern theme */
+}
+
+/* Bottom Copyright Bar */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--gold-accent);
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* --- PREMIUM DROPDOWN STYLING --- */
+.premium-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0;
+    top: 55px; /* Aligned under the button */
+    background: #ffffff;
+    min-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 10px 0;
+    z-index: 99999;
+    border: 1px solid rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.premium-dropdown a {
+    all: unset; /* Stops old messy link styles from interfering */
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px 20px !important;
+    color: #1e293b !important; /* Dark Slate text */
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    text-transform: none !important; /* No uppercase inside dropdown */
+    transition: 0.2s;
+}
+
+.premium-dropdown a i {
+    color: var(--lib-green);
+    width: 20px;
+    font-size: 16px;
+}
+
+.premium-dropdown a:hover {
+    background-color: #f1f5f9 !important;
+    color: var(--lib-green) !important;
+}
+
+/* Logout link special style */
+.premium-dropdown a.logout-link {
+    border-top: 1px solid #f1f5f9;
+    margin-top: 5px;
+    color: #ef4444 !important; /* Red for Logout */
+}
+
+.premium-dropdown a.logout-link i {
+    color: #ef4444 !important;
+}
+
+/* Class triggered by JavaScript */
+.show-premium {
+    display: block !important;
+}
+
+
+/* --- USER PILL BUTTON --- */
+.user-pill-btn {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--lib-green);
+    padding: 6px 18px 6px 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* --- NAV AVATAR SPECIFICS --- */
+.user-avatar-circle {
+    width: 34px;
+    height: 34px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* CRITICAL: Crops the image to a circle */
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-avatar-img-small {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image isn't squashed */
+}
+
+.nav-avatar-initial {
+    color: var(--lib-green);
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.nav-username {
+    color: white !important;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap; /* Prevents name from wrapping */
+}
+.caret-icon {
+    color: white;
+    font-size: 10px;
+}

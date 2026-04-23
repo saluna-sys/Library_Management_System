@@ -1,0 +1,194 @@
+<?php
+	include "connection.php";
+    include "admin_navbar.php";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Author | ShelfNova</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css?v=<?php echo time(); ?>">
+    
+    <style>
+        /* --- SHELFNOVA EDIT AUTHOR UI --- */
+        .edit-wrapper {
+            padding: 80px 20px;
+            background-color: #f4f7f5; /* Soft Sage Background */
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .edit-card {
+            background: white;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .edit-header i {
+            font-size: 40px;
+            color: #808847; /* Olive Gold icon */
+            margin-bottom: 15px;
+        }
+
+        .edit-header h2 {
+            color: #2d6a4f; /* Academic Green */
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .edit-header p {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        /* --- FORM STYLING --- */
+        .sn-field-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .sn-field-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #2d6a4f;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            margin-left: 5px;
+        }
+
+        .sn-input {
+            all: unset !important;
+            display: block !important;
+            box-sizing: border-box !important;
+            width: 100% !important;
+            height: 50px !important;
+            background-color: #f8fafc !important;
+            border: 1.5px solid #e2e8f0 !important;
+            border-radius: 10px !important;
+            padding: 0 15px !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 14px !important;
+            color: #334155 !important;
+            transition: 0.3s ease !important;
+        }
+
+        .sn-input:focus {
+            border-color: #2d6a4f !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1) !important;
+        }
+
+        /* ID Badge Style */
+        .id-badge {
+            display: inline-block;
+            background: #808847;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .btn-update-author {
+            all: unset !important;
+            display: block !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            background-color: #2d6a4f !important;
+            color: white !important;
+            text-align: center !important;
+            padding: 15px !important;
+            border-radius: 10px !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            margin-top: 10px !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s !important;
+        }
+
+        .btn-update-author:hover {
+            background-color: #1b4332 !important;
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { color: #808847; }
+    </style>
+</head>
+<body>
+
+    <div class="edit-wrapper">
+        <div class="edit-card">
+            
+            <?php
+                // ORIGINAL PHP: Fetch author data
+                $id = mysqli_real_escape_string($db, $_GET['ed']);
+                $q = "SELECT * FROM authors WHERE authorid=$id";
+                $res = mysqli_query($db, $q) or die(mysqli_error($db));
+                
+                while($row = mysqli_fetch_assoc($res))
+                {
+                    $authorid = $row['authorid'];
+                    $authorname = $row['authorname'];
+                }		
+            ?>
+
+            <div class="edit-header">
+                <i class="fa-solid fa-pen-nib"></i>
+                <h2>Update Author</h2>
+                <p>Modify existing author details</p>
+                <div class="id-badge">Author ID: #<?php echo $authorid; ?></div>
+            </div>
+
+            <form action="" method="post">
+                <div class="sn-field-group">
+                    <label>Author Name</label>
+                    <input type="text" name="authorname" class="sn-input" value="<?php echo htmlspecialchars($authorname); ?>" required>
+                </div>
+
+                <button type="submit" class="btn-update-author" name="submit">Save Changes</button>
+                
+                <a href="manage_authors.php" class="back-link">Cancel and Return</a>
+            </form>
+        </div>
+    </div>
+
+    <?php
+        // ORIGINAL PHP: Update logic
+        if(isset($_POST['submit']))
+        {
+            $new_name = mysqli_real_escape_string($db, $_POST['authorname']);
+
+            $q1 = "UPDATE authors SET authorname='$new_name' WHERE authorid=".$id.";";
+            if(mysqli_query($db, $q1))
+            {
+                echo "<script>alert('Author updated successfully.'); window.location='manage_authors.php';</script>";
+            }
+        }
+	?>
+
+</body>
+</html>
